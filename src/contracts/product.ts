@@ -5,7 +5,7 @@
 /** The command people run; it names the home directory and prefixes the environment variables. */
 export const APP_NAME = "tradingagents";
 /** The product's name as people read it (the header). */
-export const APP_TITLE = "TradingAgents";
+export const APP_TITLE = "TradingAgents - BE Project";
 /** Who makes it. */
 export const MAKER = "Tauric Research";
 

@@ -69,12 +69,14 @@ export function Welcome({
   const { unicode } = useTheme();
   const roles = useRoles();
   // The brand's touches: in the accent, or secondary without colour.
-  const brand = roles.accent.color ? roles.accent : roles.detail;
+  // const brand = roles.accent.color ? roles.accent : roles.detail;
   const showMark = unicode && columns >= WELCOME_MARK_COLUMNS;
   // The model and data, then the site when the whole of it fits; else the site is left out, not cut.
-  const modelLine = `${printable(model)}${SEPARATOR}${message(keyed ? "app.dataTauric" : "app.dataYahoo")}`;
-  const room = columns - (showMark ? MARK_WIDTH + 3 : 0);
-  const site = keyed && stringWidth(`${modelLine}${SEPARATOR}${SITE.text}`) <= room;
+  // const modelLine = `${printable(model)}${SEPARATOR}${message(keyed ? "app.dataTauric" : "app.dataYahoo")}`;
+  // const room = columns - (showMark ? MARK_WIDTH + 3 : 0);
+  // const site = keyed && stringWidth(`${modelLine}${SEPARATOR}${SITE.text}`) <= room;
+
+
   const lines = [
     <Text key="name" wrap="truncate">
       <Text {...roles.title}>{APP_TITLE}</Text>
@@ -84,13 +86,14 @@ export function Welcome({
       </Text>
     </Text>,
     <Text key="model" {...roles.detail} wrap="truncate">
-      {modelLine}
+      {/* {modelLine}
       {site ? (
         <>
           {SEPARATOR}
           {hyperlink(SITE.text, SITE.url, unicode)}
         </>
-      ) : null}
+      ) : null} */}
+      {message("cli.credits")}
     </Text>,
   ];
   // With a key, the news (what is new, or a newer release); without one, where to get a key.
@@ -125,15 +128,15 @@ export function Welcome({
       )}
       {announcement ? <Announcement lines={announcement} /> : null}
       <Box flexDirection="column" marginTop={1}>
-        <Text {...roles.detail} wrap="truncate">
+        {/* <Text {...roles.detail} wrap="truncate">
           {message("app.tryLead")}
           <Text {...brand}>{message("app.tryExamples")}</Text>
-        </Text>
-        <Box marginTop={1}>
+        </Text> */}
+        {/* <Box marginTop={1}>
           <Text {...roles.detail} wrap="truncate">
             {message("app.keyHints", { separator: SEPARATOR })}
           </Text>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

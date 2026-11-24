@@ -31,6 +31,8 @@ function getOne(): string {
 }
 
 const catalog = {
+  // CLI Project Credits
+  "cli.credits": () => "Built by Anubhav Shavaran",
   // Command line
   "cli.usage": ({ app }: { app: string }) => usage(app),
   "cli.unknownCommand": ({ command }: { command: string }) => `Unknown command: ${command}`,
